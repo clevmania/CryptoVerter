@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="32dp"
+    android:orientation="vertical"
+    tools:context="com.eclev.lawrence.cryptoverter.ConversionActivity">
+
+    <TextView
+        android:id="@+id/tv_exchange_rate_btc"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BTC"/>
+
+    <TextView
+        android:id="@+id/tv_exchange_rate_eth"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ETH"/>
+
+    <Spinner
+        android:id="@+id/sp_choose_currency"
+        android:prompt="@string/select"
+        android:spinnerMode="dialog"
+        android:entries="@array/crypto_currency"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/et_amountToConvert"
+        android:layout_marginTop="8dp"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Amount"
+        />
+
+    <EditText
+        android:id="@+id/et_convertedAmount"
+        android:layout_marginTop="8dp"
+        android:inputType="number"
+        android:enabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Its Conversion"
+        />
+
+</LinearLayout>

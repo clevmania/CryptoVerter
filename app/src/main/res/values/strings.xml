@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">CryptoVerter</string>
+    <string name="select">Select Currency</string>
+
+    <array name="crypto_currency">
+        <item>Choose Currency</item>
+        <item>Btc</item>
+        <item>Eth</item>
+    </array>
+
+    <array name="currency">
+        <item>Select Base Currency</item>
+        <item>Japanese Yen          JPY</item>
+        <item>Chinese Yuan Renminb  CNY</item>
+        <item>INDIA RUPEES          INR</item>
+        <item>Singapore Dollar      SGD</item>
+        <item>South Korean won	    KRW</item>
+        <item>Us Dollar 		    USD</item>
+        <item>Australian Dollar 	AUD</item>
+        <item>Euro 			        EUR</item>
+        <item>Great Britain Pound 	GBP</item>
+        <item>Russian Ruble 		RUB</item>
+        <item>South African Rand 	ZAR</item>
+        <item>Mexican Peso 		    MXN</item>
+        <item>Hong Kong dollar	    HKD</item>
+        <item>Canadian dollar		CAD</item>
+        <item>New Zealand Dollar 	NZD</item>
+        <item>Swedish Krona 		SEK</item>
+        <item>Swiss Franc 		    CHF</item>
+        <item>Norwegian Krone 	    NOK</item>
+        <item>Brazilian Real 	    BRL</item>
+        <item>Nigerian Naira   	    NGN</item>
+    </array>
+</resources>
