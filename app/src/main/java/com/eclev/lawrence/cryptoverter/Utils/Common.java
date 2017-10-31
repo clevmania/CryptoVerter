@@ -1,4 +1,4 @@
-package com.eclev.lawrence.cryptoverter;
+package com.eclev.lawrence.cryptoverter.Utils;
 
 import com.eclev.lawrence.cryptoverter.Remote.BitCurrency;
 import com.eclev.lawrence.cryptoverter.Remote.RetrofitClient;

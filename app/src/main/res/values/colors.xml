@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#0079BF</color>
+    <color name="colorPrimaryDark">#0067A3</color>
+    <color name="colorAccent">#5CB046</color>
+
+    <color name="colorPrimaryButton">#5CB046</color>
+    <color name="colorSecondaryButton">#0067A3</color>
+    <color name="colorToolbar">#0079BF</color>
+
+
+    <color name="colorBackground">#026AA7</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorSpinnerEditText">#EDEFF0</color>
+    <color name="colorHintTextColor">#757575</color>
 </resources>

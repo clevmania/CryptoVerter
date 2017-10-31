@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:padding="16dp"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
@@ -18,7 +17,9 @@
                 android:id="@+id/tv_currency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:text="GBP"
+                android:textColor="@color/colorBackground"
                 android:paddingBottom="8dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textSize="24sp"
@@ -26,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/iv_base_currency_img"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginBottom="8dp"
                 android:layout_below="@+id/tv_currency"
                 android:src="@drawable/btc"
@@ -40,9 +41,9 @@
                 android:layout_toRightOf="@+id/iv_base_currency_img"
                 android:layout_toEndOf="@+id/iv_base_currency_img"
                 android:layout_alignBaseline="@id/iv_base_currency_img"
-                android:layout_width="30dp"
+                android:layout_width="24dp"
                 android:src="@mipmap/ic_challenge"
-                android:layout_height="30dp"/>
+                android:layout_height="24dp"/>
 
             <ImageView
                 android:id="@+id/iv_base_currency"
@@ -61,18 +62,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_currency"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="3dp"
                 android:layout_toRightOf="@+id/iv_base_currency"
                 android:layout_alignBaseline="@id/iv_base_currency_img"
                 android:text="5184"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 />
 
             <ImageView
                 android:id="@+id/iv_eth_base_currency_img"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_below="@+id/iv_base_currency_img"
                 android:src="@drawable/eth"
                 />
@@ -82,10 +83,10 @@
                 android:layout_below="@+id/iv_equality"
                 android:layout_toRightOf="@+id/iv_base_currency_img"
                 android:layout_toEndOf="@+id/iv_base_currency_img"
-                android:layout_alignBaseline="@id/iv_base_currency_img"
-                android:layout_width="30dp"
+                android:layout_alignBaseline="@id/iv_eth_base_currency_img"
+                android:layout_width="24dp"
                 android:src="@mipmap/ic_challenge"
-                android:layout_height="30dp"/>
+                android:layout_height="24dp"/>
 
             <ImageView
                 android:id="@+id/iv_eth_base_currency"
@@ -104,10 +105,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_xchange_amount"
                 android:layout_toRightOf="@+id/iv_base_currency"
-                android:layout_alignBaseline="@id/iv_base_currency_img"
+                android:layout_alignBaseline="@id/iv_eth_equality"
                 android:text="5184"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 />
 
         </RelativeLayout>
