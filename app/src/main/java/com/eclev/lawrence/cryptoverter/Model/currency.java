@@ -1,4 +1,4 @@
-package com.eclev.lawrence.cryptoverter;
+package com.eclev.lawrence.cryptoverter.Model;
 
 /**
  * Created by Lawrence on 10/21/2017.

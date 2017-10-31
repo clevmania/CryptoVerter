@@ -1,4 +1,4 @@
-package com.eclev.lawrence.cryptoverter;
+package com.eclev.lawrence.cryptoverter.UI;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -15,13 +14,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eclev.lawrence.cryptoverter.Model.Xchanger;
+import com.eclev.lawrence.cryptoverter.R;
 import com.eclev.lawrence.cryptoverter.Remote.BitCurrency;
+import com.eclev.lawrence.cryptoverter.Utils.Common;
 
 import dmax.dialog.SpotsDialog;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ConversionActivity extends AppCompatActivity {
     BitCurrency mBitCurrency;
@@ -52,8 +49,13 @@ public class ConversionActivity extends AppCompatActivity {
         btcXchangeRate = extras.getDouble("btcXchange");
         ethXchangeRate = extras.getDouble("ethXchange");
 
-        tvRateBtc.setText("BTC: " + btcXchangeRate);
-        tvRateEth.setText("ETH: " + ethXchangeRate);
+        if(TextUtils.isEmpty(btcXchangeRate.toString())&& TextUtils.isEmpty(ethXchangeRate.toString())){
+            Toast.makeText(this, "Please go back and create more cards", Toast.LENGTH_LONG).show();
+        }else {
+            tvRateBtc.setText("BTC: " + btcXchangeRate);
+            tvRateEth.setText("ETH: " + ethXchangeRate);
+        }
+
 
 //        mBitCurrency.getBtcEth().enqueue(new Callback<Xchanger>() {
 //            @Override
