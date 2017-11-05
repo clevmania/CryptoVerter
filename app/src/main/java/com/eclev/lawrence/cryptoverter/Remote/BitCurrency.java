@@ -12,14 +12,6 @@ import retrofit2.http.Query;
  */
 
 public interface BitCurrency {
-//    @GET("/data/price?fsym=BTC&tsyms=USD")
-//    Call<Btc> getExchangeRates();
-//    @GET("/data/price?fsym=BTC")
-//    Call<Btc> getExchangeRateNaira(@Query("tsyms") String currency);
-
-    @GET("/data/pricemulti?fsyms=BTC,ETH&tsyms=GBP")
-    Call<Xchanger> getBtcEth();
-
     @GET("/data/pricemulti?fsyms=BTC,ETH")
     Call<Xchanger> getXchangeRate(@Query("tsyms") String currencyCode);
 

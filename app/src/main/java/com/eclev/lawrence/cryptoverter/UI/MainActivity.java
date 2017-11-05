@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner chooseCurrency;
 
     BitCurrency mBitCurrency;
-    TextView tvRateBtc, tvRateEth;
+    TextView tvCardStatus;
     AlertDialog mDialog;
 
     @Override
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         cardsView = (RecyclerView) findViewById(R.id.rv_cards_view);
         chooseCurrency = (Spinner) findViewById(R.id.sp_choose_currency);
+        tvCardStatus = (TextView) findViewById(R.id.tv_status);
         mCurrencies = new ArrayList<>();
 
         mBitCurrency = Common.getBitCurrencyEquiv();
@@ -55,10 +56,6 @@ public class MainActivity extends AppCompatActivity {
         cardsView.setItemAnimator(new DefaultItemAnimator());
         mCardsAdapter = new cardsAdapter(this,mCurrencies);
         cardsView.setAdapter(mCardsAdapter);
-
-//        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.currency,R.layout.spinner_item);
-//        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-//        chooseCurrency.setAdapter(adapter);
 
         chooseCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -150,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         break;
                 }
+                createCardHandler();
             }
 
             @Override
@@ -160,9 +158,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    https://www.cryptocompare.com/media/19633/btc.png
-//    /media/20275/etc2.png
-//    https://www.cryptocompare.com/media/20646/eth.png
+
+    public void createCardHandler() {
+        if(mCardsAdapter.getItemCount() == 0){
+            tvCardStatus.setVisibility(View.VISIBLE);
+            cardsView.setVisibility(View.GONE);
+        }else{
+            cardsView.setVisibility(View.VISIBLE);
+            tvCardStatus.setVisibility(View.GONE);
+        }
+    }
+
+//    public void setImage(Context context, String img){
+//        ImageView blogImage = (ImageView) myView.findViewById(R.id.iv_blog_posted_image);
+//        Glide.with(context).load(img).into(blogImage);
+//        https://www.cryptocompare.com/media/19633/btc.png
+//        https://www.cryptocompare.com/media/20646/eth.png
+//    }
+
+
 
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration{
         private int spanCount;
@@ -196,7 +210,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int dpToPx(int dp) {
         Resources r = getResources();
-
         DisplayMetrics metrics = r.getDisplayMetrics();
         int unit = TypedValue.COMPLEX_UNIT_DIP;
         float show = TypedValue.applyDimension(unit, dp, metrics);

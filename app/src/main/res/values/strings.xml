@@ -31,4 +31,26 @@
         <item>Brazilian Real 	    BRL</item>
         <item>Nigerian Naira   	    NGN</item>
     </array>
+
+    <string name="NGN">&#x20A6;</string>
+    <string name="JPY">&#x00A5;</string>
+    <string name="CNY">&#x00A5;</string>
+    <string name="INR">&#x20b9;</string>
+    <string name="SGD">&#x0024;</string>
+    <string name="KRW">&#x20a9;</string>
+    <string name="USD">&#x0024;</string>
+    <string name="AUD">&#x0024;</string>
+    <string name="EUR">&#x20ac;</string>
+    <string name="GBP">&#x00a3;</string>
+    <string name="RUB">&#x0440;</string>
+    <string name="ZAR">&#x0052;</string>
+    <string name="MXN">&#x0024;</string>
+    <string name="HKD">&#x0024;</string>
+    <string name="CAD">&#x0024;</string>
+    <string name="NZD">&#x0024;</string>
+    <string name="SEK">&#x006b;</string>
+    <string name="CHF">&#x0043;</string>
+    <string name="NOK">&#x0072;</string>
+    <string name="BRL">&#x0052;</string>
+
 </resources>
