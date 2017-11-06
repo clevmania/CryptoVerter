@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eclev.lawrence.cryptoverter.CardLoader;
 import com.eclev.lawrence.cryptoverter.Model.Xchanger;
 import com.eclev.lawrence.cryptoverter.Model.currency;
 import com.eclev.lawrence.cryptoverter.R;
@@ -54,7 +53,6 @@ public class cardsAdapter extends RecyclerView.Adapter<cardsAdapter.cardHolder>{
     public void onBindViewHolder(final cardHolder holder, int position) {
         baseCurrency = mCurrencyList.get(position);
         final String currency  = baseCurrency.getBaseCurrency();
-        new CardLoader(currency);
         holder.loadCurrentXchangeRate(currency);
         holder.btcXchangeView.setText(holder.getBtcx());
         holder.ethXchangeView.setText(holder.getEthx());
@@ -69,6 +67,7 @@ public class cardsAdapter extends RecyclerView.Adapter<cardsAdapter.cardHolder>{
                 if(holder.getBtcx()!= null && holder.getEthx()!= null){
                     extras.putDouble("btcXchange",Double.valueOf(holder.getBtcx()));
                     extras.putDouble("ethXchange", Double.valueOf(holder.getEthx()));
+                    extras.putString("currency", currency);
                     convertIntent.putExtras(extras);
                     mContext.startActivity(convertIntent);
                 }else{

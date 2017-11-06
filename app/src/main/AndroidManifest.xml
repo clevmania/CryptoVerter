@@ -19,7 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".UI.ConversionActivity"
+                  android:label="Convert Now"
             android:parentActivityName=".UI.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value=".UI.MainActivity"/>
         </activity>
     </application>
 

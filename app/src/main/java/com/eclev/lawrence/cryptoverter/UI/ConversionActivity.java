@@ -22,7 +22,7 @@ import dmax.dialog.SpotsDialog;
 
 public class ConversionActivity extends AppCompatActivity {
     BitCurrency mBitCurrency;
-    TextView tvRateBtc, tvRateEth;
+    TextView tvRateBtc, tvRateEth, tvBtc, tvEth;
     AlertDialog mDialog;
     EditText btcConvertBox, ethConvertBox;
     Double btcXchangeRate = null;
@@ -35,10 +35,11 @@ public class ConversionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversion);
 
-        mBitCurrency = Common.getBitCurrencyEquiv();
         tvRateBtc = (TextView) findViewById(R.id.tv_exchange_rate_btc);
         tvRateEth = (TextView) findViewById(R.id.tv_exchange_rate_eth);
         mDialog = new SpotsDialog(ConversionActivity.this);
+        tvBtc = (TextView) findViewById(R.id.tv_btcToUSD);
+        tvEth = (TextView) findViewById(R.id.tv_ethToUSD);
 
         btcConvertBox = (EditText) findViewById(R.id.et_amountToConvert);
         ethConvertBox = (EditText) findViewById(R.id.et_convertedAmount);
@@ -48,37 +49,26 @@ public class ConversionActivity extends AppCompatActivity {
         Bundle extras = xChangeIntent.getExtras();
         btcXchangeRate = extras.getDouble("btcXchange");
         ethXchangeRate = extras.getDouble("ethXchange");
+        tvBtc.setText("BTC - " + extras.getString("currency"));
+        tvEth.setText("ETH - " + extras.getString("currency"));
+
 
         if(TextUtils.isEmpty(btcXchangeRate.toString())&& TextUtils.isEmpty(ethXchangeRate.toString())){
             Toast.makeText(this, "Please go back and create more cards", Toast.LENGTH_LONG).show();
         }else {
-            tvRateBtc.setText("BTC: " + btcXchangeRate);
-            tvRateEth.setText("ETH: " + ethXchangeRate);
+            String btc = getCurrencySymbol(extras.getString("currency"))+String.valueOf(btcXchangeRate);
+            String eth = getCurrencySymbol(extras.getString("currency"))+String.valueOf(ethXchangeRate);
+            tvRateBtc.setText(btc);
+            tvRateEth.setText(eth);
         }
 
-
-//        mBitCurrency.getBtcEth().enqueue(new Callback<Xchanger>() {
-//            @Override
-//            public void onResponse(Call<Xchanger> call, Response<Xchanger> response) {
-//                mDialog.dismiss();
-//                tvRateBtc.setText("BTC: " + String.valueOf(response.body().getBTC()));
-//                tvRateEth.setText("ETH: " + String.valueOf(response.body().getETH()));
-//                btcXchangeRate = String.valueOf(response.body().getBTC());
-//                ethXchangeRate = String.valueOf(response.body().getETH());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Xchanger> call, Throwable t) {
-//                Log.e("Error", t.getMessage());
-//                mDialog.dismiss();
-//            }
-//        });
 
         selectCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch(i){
                     case 0:
+                        selection = "none";
                         Toast.makeText(ConversionActivity.this, "Select Currency", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
@@ -118,6 +108,10 @@ public class ConversionActivity extends AppCompatActivity {
                             con = Double.valueOf(charSequence.toString());
                             ethConvertBox.setText(String.valueOf(con / ethXchangeRate));
                             break;
+                        case "none":
+                            Toast.makeText(ConversionActivity.this,
+                                    "You have not chosen any cryptocurrency", Toast.LENGTH_SHORT).show();
+                            break;
                     }
                 }
 
@@ -129,6 +123,73 @@ public class ConversionActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public String getCurrencySymbol(String currencyCode){
+        String symbol = null;
+        switch (currencyCode){
+            case "NGN":
+                symbol = getString(R.string.NGN);
+                break;
+            case "JPY":
+                symbol = getString(R.string.JPY);
+                break;
+            case "CNY":
+                symbol = getString(R.string.CNY);
+                break;
+            case "INR":
+                symbol = getString(R.string.INR);
+                break;
+            case "USD":
+                symbol = getString(R.string.USD);
+                break;
+            case "SGD":
+                symbol = getString(R.string.SGD);
+                break;
+            case "KRW":
+                symbol = getString(R.string.KRW);
+                break;
+            case "AUD":
+                symbol = getString(R.string.AUD);
+                break;
+            case "EUR":
+                symbol = getString(R.string.KRW);
+                break;
+            case "GBP":
+                symbol = getString(R.string.AUD);
+                break;
+            case "RUB":
+                symbol = getString(R.string.RUB);
+                break;
+            case "ZAR":
+                symbol = getString(R.string.ZAR);
+                break;
+            case "MXN":
+                symbol = getString(R.string.MXN);
+                break;
+            case "HKD":
+                symbol = getString(R.string.HKD);
+                break;
+            case "CAD":
+                symbol = getString(R.string.CAD);
+                break;
+            case "NZD":
+                symbol = getString(R.string.NZD);
+                break;
+            case "SEK":
+                symbol = getString(R.string.SEK);
+                break;
+            case "CHF":
+                symbol = getString(R.string.CHF);
+                break;
+            case "NOK":
+                symbol = getString(R.string.NOK);
+                break;
+            case "BRL":
+                symbol = getString(R.string.BRL);
+                break;
+        }
+        return symbol;
     }
 
 }

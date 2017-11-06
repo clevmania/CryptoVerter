@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorBackground"
     android:orientation="vertical"
     android:layout_height="wrap_content"
     tools:context="com.eclev.lawrence.cryptoverter.UI.MainActivity">
 
-
-    <RelativeLayout
-        android:background="@color/colorBackground"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_cards_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
         </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:text="No cards selected"
+            android:textColor="@color/colorText"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <Spinner
             android:id="@+id/sp_choose_currency"
@@ -33,8 +39,7 @@
             android:padding="10dp"
             android:prompt="@string/select"
             android:spinnerMode="dialog"/>
-    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>
 
 

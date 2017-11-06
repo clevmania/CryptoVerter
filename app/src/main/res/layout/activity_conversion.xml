@@ -4,72 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="32dp"
     android:orientation="vertical"
     tools:context="com.eclev.lawrence.cryptoverter.UI.ConversionActivity">
 
-    <TextView
-        android:id="@+id/tv_exchange_rate_btc"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        android:textSize="24sp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BTC"/>
 
-    <TextView
-        android:id="@+id/tv_exchange_rate_eth"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center"
-        android:textSize="24sp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ETH"/>
-
-    <TextView
-        android:layout_marginTop="8dp"
-        android:textSize="20sp"
-        android:padding="8dp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose conversion type:"/>
-
-    <Spinner
-        android:id="@+id/sp_choose_currency"
-        android:prompt="@string/select"
-        android:spinnerMode="dialog"
-        android:entries="@array/crypto_currency"
-        android:layout_marginTop="8dp"
-        android:padding="10dp"
+    <LinearLayout
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        android:padding="32dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/et_amountToConvert"
-        android:layout_marginTop="8dp"
-        android:inputType="numberDecimal"
-        android:layout_width="match_parent"
-        android:padding="15dp"
-        android:textColor="@color/colorHintTextColor"
-        android:background="@drawable/currency_input_field"
-        android:layout_height="wrap_content"
-        android:hint="Amount"
-        />
+        <TextView
+            android:id="@+id/tv_from"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="left"
+            android:textSize="32sp"
+            android:textColor="@color/colorText"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From"/>
 
-    <EditText
-        android:id="@+id/et_convertedAmount"
-        android:layout_marginTop="8dp"
-        android:inputType="number"
-        android:enabled="false"
-        android:padding="15dp"
-        android:textColor="@color/colorHintTextColor"
-        android:background="@drawable/currency_input_field"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_btcToUSD"
+                android:textSize="20sp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="20dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BTC - USD"/>
+
+            <TextView
+                android:id="@+id/tv_exchange_rate_btc"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorText"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BTC"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_ethToUSD"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorAccent"
+                android:paddingTop="10dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ETH - USD"/>
+
+            <TextView
+                android:id="@+id/tv_exchange_rate_eth"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/colorText"
+                android:layout_marginLeft="20dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ETH"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="32dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Its Conversion"
-        />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_gravity="left"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose conversion type:"/>
+
+        <Spinner
+            android:id="@+id/sp_choose_currency"
+            android:prompt="@string/select"
+            android:spinnerMode="dialog"
+            android:entries="@array/crypto_currency"
+            android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et_amountToConvert"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:textColor="@color/colorHintTextColor"
+            android:background="@drawable/currency_input_field"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            />
+
+        <EditText
+            android:id="@+id/et_convertedAmount"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:enabled="false"
+            android:padding="15dp"
+            android:textColor="@color/colorHintTextColor"
+            android:background="@drawable/currency_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Its Conversion"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
